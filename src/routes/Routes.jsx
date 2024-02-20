@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import AddProduct from "../pages/AddProduct";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Category from "../pages/Category";
 
 export const Routes = createBrowserRouter([
   {
@@ -15,6 +16,13 @@ export const Routes = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+        loader: () => fetch('https://baby-toy-store-server-job-task.vercel.app/allBrands')
+      },
+      
+      {
+        path:"category/:brand",
+        element:<Category/>
+        
       },
       {
         path:"addProduct",

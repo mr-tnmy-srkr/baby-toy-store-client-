@@ -1,2 +1,3 @@
 import useAuthContext from "./useAuthContext"
-export {useAuthContext}
+import useTheme from "./useTheme"
+export {useAuthContext,useTheme}

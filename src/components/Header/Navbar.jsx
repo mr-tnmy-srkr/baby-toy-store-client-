@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { CgCloseR } from "react-icons/cg";
+import { BsSun } from "react-icons/bs";
 import { HiMenuAlt1 } from "react-icons/hi";
+import { MdDarkMode } from "react-icons/md";
 import { RxAvatar } from "react-icons/rx";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useAuthContext } from "../../hook";
+import { useAuthContext, useTheme } from "../../hook";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const { user, logOut } = useAuthContext();
   const [show, setShow] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // console.log(show);
   const NavLinks = (
@@ -170,7 +173,20 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        <div className="mr-10">dark</div>
+        <div className="mr-10">
+          <button
+            onClick={toggleTheme}
+            className=" btn btn-circle btn-outline hover:bg-white hover:text-black dark:border-white dark:text-white dark:hover:bg-zinc-800 dark:hover:text-white"
+          >
+            <span className="hover:-rotate-90">
+              {theme === "dark" ? (
+                <BsSun size={30} />
+              ) : (
+                <MdDarkMode size={30} />
+              )}
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -15,6 +15,10 @@ export const Routes = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+        loader: () =>
+          fetch(
+            "https://baby-toy-store-server-job-task.vercel.app/allBrands"
+          ),
       },
       {
         path:"addProduct",

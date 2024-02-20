@@ -1,5 +1,5 @@
-// import axios from "axios";
-// import { toast } from "react-toastify";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const AddProducts = () => {
   const handleSaveToDb = async (e) => {
@@ -12,12 +12,11 @@ const AddProducts = () => {
     const rating = form.rating.value;
     const description = form.description.value;
 
-    // console.log(brand, image, name, type, price, rating, description);
     const newProduct = { brand, image, name, price, rating, description };
     console.log(newProduct);
-    /*  try {
+    try {
       const response = await axios.post(
-        "https://brand-shop-server-express-mongodb-mern-assignment-10.vercel.app/products",
+        "http://localhost:5000/addProducts",
         newProduct,
         {
           headers: {
@@ -27,12 +26,12 @@ const AddProducts = () => {
       );
       // console.log(response.data.insertedId);
       if (response.data.insertedId) {
-      toast.success("Product added successfully")
+        toast.success("Product added successfully");
         form.reset();
       }
     } catch (error) {
       console.error(error);
-    } */
+    }
   };
 
   return (
@@ -69,6 +68,7 @@ const AddProducts = () => {
                 <option value="tricycle">Tricycle</option>
                 <option value="bubbles">Bubbles</option>
                 <option value="educational">Educational</option>
+                <option value="kitchen">Kitchen Sets</option>
               </select>
             </div>
             <div>

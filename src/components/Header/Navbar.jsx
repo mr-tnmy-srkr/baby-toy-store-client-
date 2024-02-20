@@ -1,11 +1,10 @@
-/* import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { HiMenuAlt1 } from "react-icons/hi"; */
-// import useAuthContext from "../../../hook/useAuthContext";
-/* import { CgCloseR } from "react-icons/cg";
+import { useState } from "react";
+import { CgCloseR } from "react-icons/cg";
+import { HiMenuAlt1 } from "react-icons/hi";
 import { RxAvatar } from "react-icons/rx";
-import { ToastContainer, toast } from "react-toastify";
-import shopify from "../../../assets/shopify.svg"; */
+import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuthContext } from "../../hook";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -61,35 +60,17 @@ const Navbar = () => {
   );
 
   //logout
-  /*  const handleLogout = () => {
+  const handleLogout = () => {
     user &&
       logOut()
         .then(() => {
-          toast.info("Logout successful!", {
-            position: "top-center",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          toast.info("Logout successful!");
         })
         .catch((error) => {
           const errorMessage = error.message;
-          toast.error(errorMessage, {
-            position: "bottom-center",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          toast.error(errorMessage);
         });
-  }; */
+  };
 
   return (
     <div className=" ">
@@ -121,11 +102,11 @@ const Navbar = () => {
             className="font-bold text-xl md:text-2xl cursor-pointer text-center flex items-center"
           >
             <div className="">
-              <img className="h-10 w-14" src={shopify} alt="" />
+              {/* <img className="h-10 w-14" src={shopify} alt="" /> */}
             </div>
             <div className="hidden md:block">
-              <span className="text-[#95BF46] text-5xl">S</span>
-              <span className="text-[#95BF46]">hopify</span>
+              <span className="text-[#95BF46] text-5xl">Baby</span>
+              <span className="text-[#95BF46]">Toy</span>
             </div>
           </Link>
         </div>
@@ -168,8 +149,6 @@ const Navbar = () => {
               className={`font-bold menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box  absolute top-12 lg:top-12 right-16 space-y-3 dark:bg-gray-800 dark:text-gray-100`}
             >
               <li className="text-2xl ">{user?.displayName}</li>
-              {/* <li className="text-lg">Update Profile</li> */}
-              {/* <li className="text-lg">Settings</li> */}
               <li onClick={handleLogout} className="text-lg cursor-pointer">
                 {user && "Logout"}
               </li>
@@ -191,19 +170,8 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        <div className="mr-10"></div>
+        <div className="mr-10">dark</div>
       </div>
-      <ToastContainer
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </div>
   );
 };

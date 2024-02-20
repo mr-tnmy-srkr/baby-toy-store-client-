@@ -1,8 +1,8 @@
 import { RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./provider";
 import { Routes } from "./routes/Routes";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -10,8 +10,9 @@ function App() {
       <AuthProvider>
         <RouterProvider router={Routes} />
       </AuthProvider>
-      
+
       <ToastContainer
+        position="top-center"
         autoClose={4000}
         hideProgressBar={false}
         newestOnTop={false}

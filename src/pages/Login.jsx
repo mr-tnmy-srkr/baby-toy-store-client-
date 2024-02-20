@@ -1,7 +1,42 @@
-import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { useState } from "react";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { BiShow } from "react-icons/bi";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuthContext } from "../hook";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { loading, userLogin } = useAuthContext();
+
+  const location = useLocation();
+  // console.log(location.state);
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    // console.log(form);
+    const email = form.get("email");
+    const password = form.get("password");
+    // console.log(email,password);
+
+    userLogin(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        toast.success("User Login successful");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+  const inputClass =
+    "w-full border p-3 rounded bg-white  focus:outline-none focus:ring focus:border-blue-300";
   return (
     <div className="">
       <div className="min-h-screen flex items-center justify-center dark:bg-gray-500 dark:text-black ">
@@ -16,9 +51,8 @@ const Login = () => {
                 type="email"
                 id="email"
                 name="email"
-                //   value={email}
                 placeholder="Enter your email"
-                className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
+                className={inputClass}
                 required
               />
             </div>
@@ -31,15 +65,12 @@ const Login = () => {
                 id="password"
                 name="password"
                 autoComplete="on"
-                //   value={password}
                 placeholder="Enter your password"
-                className="w-full border p-3 rounded text-gray-800 focus:outline-none focus:ring focus:border-blue-300"
+                className={inputClass}
                 required
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
-                // onMouseUp={() => setShowPassword(false)}
-                // onMouseLeave={() => setShowPassword(false)}
                 className="absolute bottom-3 right-3 cursor-pointer"
               >
                 {showPassword ? (
@@ -53,7 +84,7 @@ const Login = () => {
               type="submit"
               className="w-full bg-[#95BF46] hover:bg-green-400 border-0 text-white py-3 rounded  focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
             >
-              Login
+              {loading ? "Please wait..." : "Login"}
             </button>
           </form>
 
@@ -76,20 +107,9 @@ const Login = () => {
             </div>
           </div>
 
-          <SocialLogin></SocialLogin>
+          <SocialLogin />
         </div>
       </div>
-      <ToastContainer
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </div>
   );
 };

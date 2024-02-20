@@ -4,6 +4,7 @@ import { BiShow } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../hook";
+import SocialLogin from "./SocialLogin";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +12,7 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  const { createUser, updateUserProfile } = useAuthContext();
+  const { loading, createUser, updateUserProfile } = useAuthContext();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -84,7 +85,6 @@ const Signup = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
-                  // value={firstName}
                   placeholder="Enter your first name"
                   className={inputClass}
                   required
@@ -98,7 +98,6 @@ const Signup = () => {
                   type="text"
                   id="lastName"
                   name="lastName"
-                  // value={lastName}
                   placeholder="Enter your last name"
                   className={inputClass}
                   required
@@ -113,7 +112,6 @@ const Signup = () => {
                 type="email"
                 id="email"
                 name="email"
-                //   value={email}
                 placeholder="Enter your email"
                 className={inputClass}
                 required
@@ -127,7 +125,6 @@ const Signup = () => {
                 type="photoUrl"
                 id="photo_url"
                 name="photoUrl"
-                //   value={email}
                 placeholder="Enter your photo URL"
                 className={inputClass}
                 required
@@ -142,7 +139,6 @@ const Signup = () => {
                 id="password"
                 name="password"
                 autoComplete="on"
-                //   value={password}
                 placeholder="Enter your password"
                 className={inputClass}
                 required
@@ -168,7 +164,6 @@ const Signup = () => {
                 id="confirmPassword"
                 name="confirmPassword"
                 autoComplete="on"
-                //   value={confirmPassword}
                 placeholder="Confirm your password"
                 className={inputClass}
                 required
@@ -198,7 +193,7 @@ const Signup = () => {
               type="submit"
               className="w-full bg-[#95BF46] hover:bg-green-400 border-0 text-white py-3 rounded  focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
             >
-              Sign Up
+              {loading ? "Please wait..." : "Signup"}
             </button>
           </form>
 
@@ -221,7 +216,7 @@ const Signup = () => {
             </div>
           </div>
 
-          {/* <SocialLogin></SocialLogin> */}
+          <SocialLogin />
         </div>
       </div>
     </div>

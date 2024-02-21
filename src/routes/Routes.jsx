@@ -6,6 +6,8 @@ import AddProduct from "../pages/AddProduct";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Products from "../pages/Products";
+import SingleProducts from "../pages/SingleProducts";
+import MyCart from "../pages/MyCart";
 
 export const Routes = createBrowserRouter([
   {
@@ -16,18 +18,35 @@ export const Routes = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch('https://baby-toy-store-server-job-task.vercel.app/allBrands')
+        loader: () =>
+          fetch("https://baby-toy-store-server-job-task.vercel.app/allBrands"),
       },
-      
-      {
-        path:"products/:brand",
-        element:<Products/>,
-        loader:({params}) => fetch(`https://baby-toy-store-server-job-task.vercel.app/allBrands/${params.brand}`)
 
+      {
+        path: "products/:brand",
+        element: <Products />,
+        loader: ({ params }) =>
+          fetch(
+            `https://baby-toy-store-server-job-task.vercel.app/allBrands/${params.brand}`
+          ),
       },
       {
-        path:"addProduct",
-        element: <AddProduct/>,
+        path: "products/:brand/:id",
+        element: <SingleProducts />,
+        loader: ({ params }) =>
+          fetch(
+            `https://baby-toy-store-server-job-task.vercel.app/allBrands/${params.brand}/${params.id}`
+          ),
+      },
+      {
+        path: "addProduct",
+        element: <AddProduct />,
+      },
+      {
+        path: "/myCart",
+        element: <MyCart />,
+        loader: () =>
+          fetch(`https://baby-toy-store-server-job-task.vercel.app/myCart`),
       },
       {
         path: "/login",

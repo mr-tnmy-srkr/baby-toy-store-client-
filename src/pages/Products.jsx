@@ -3,7 +3,7 @@ import ProductCard from "../components/ProductCard/ProductCard";
 
 const Products = () => {
     const brand = useLoaderData();
-    console.log(brand);
+ 
   return (
     <div className="grid grid-cols-3 p-6">
      {

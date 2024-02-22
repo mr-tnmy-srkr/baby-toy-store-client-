@@ -1,8 +1,33 @@
-# React + Vite
+<p align="center">
+ ---
+  <b><span style="font-size: 30px ; color: #0A03FC;font-weight:bold"><u>Baby Toy Shop</u></span></b>
+ ---
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+### <span style=" color: #FA07EF">Code Link : </span>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Client Side Github Code Link](https://github.com/mr-tnmy-srkr/baby-toy-store-client-job-task "https://github.com/mr-tnmy-srkr/baby-toy-store-client-job-task")
+
+2. [Server Side Github Code Link](https://github.com/mr-tnmy-srkr/baby-toy-store-server-job-task "https://github.com/mr-tnmy-srkr/baby-toy-store-server-job-task")
+
+---
+
+### <span style=" color: #FA07EF">Live Link : </span>
+
+1. [ Client Side Firebase Live Link](https://baby-toy-store-job-task.surge.sh/ "https://baby-toy-store-job-task.surge.sh/")
+
+2. [Vercel Server Side Live Link](https://baby-toy-store-server-job-task.vercel.app/ "https://baby-toy-store-server-job-task.vercel.app/")
+
+---
+
+### <span style=" color: #fc9f11;font-size:25px"> Features and functionalities of my website : </span>
+
+#
+
+- Add and update product,add product to the cart
+- Dark mode light mode features implemented
+- firebase authentication
+- Google Login Added
+- Lottie animation added

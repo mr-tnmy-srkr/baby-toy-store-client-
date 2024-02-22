@@ -9,6 +9,7 @@ import Products from "../pages/Products";
 import Signup from "../pages/Signup";
 import SingleProducts from "../pages/SingleProducts";
 import PrivateRoute from "./PrivateRoute";
+import UpdateProduct from "../pages/UpdateProduct";
 
 export const Routes = createBrowserRouter([
   {
@@ -54,6 +55,18 @@ export const Routes = createBrowserRouter([
             <AddProduct />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update-products/:brand/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateProduct />
+            </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://baby-toy-store-server-job-task.vercel.app/allBrands/${params.brand}/${params.id}`
+          ),
       },
       {
         path: "/myCart",

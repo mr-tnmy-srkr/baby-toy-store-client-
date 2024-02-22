@@ -16,7 +16,7 @@
 
 ### <span style=" color: #FA07EF">Live Link : </span>
 
-1. [ Client Side Firebase Live Link](https://baby-toy-store-job-task.surge.sh/ "https://baby-toy-store-job-task.surge.sh/")
+1. [ Client Side Surge Live Link](https://baby-toy-store-job-task.surge.sh/ "https://baby-toy-store-job-task.surge.sh/")
 
 2. [Vercel Server Side Live Link](https://baby-toy-store-server-job-task.vercel.app/ "https://baby-toy-store-server-job-task.vercel.app/")
 

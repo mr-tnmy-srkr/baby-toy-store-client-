@@ -23,7 +23,7 @@ export default function ErrorPage() {
               <i>{error.statusText || error.message}</i>
             </p>
             <Link to="/">
-              <button className="btn button bg-[#fc9f11] text-white capitalize">
+              <button className="btn button bg-emerald-700 text-white capitalize">
                 Go Back to Home
               </button>
             </Link>
@@ -36,7 +36,7 @@ export default function ErrorPage() {
             <h3>404 page {error.statusText || error.message}</h3>
             <p className="mt-8"></p>
             <Link to="/">
-              <button className="btn button bg-[#fc9f11] text-white capitalize">
+              <button className="btn button bg-emerald-700 text-white capitalize">
                 Go Back to Home
               </button>
             </Link>

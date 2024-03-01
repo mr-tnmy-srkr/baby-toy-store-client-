@@ -82,7 +82,7 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-[#95BF46] hover:bg-green-400 border-0 text-white py-3 rounded  focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+              className="w-full bg-emerald-700  hover:bg-green-400 border-0 text-white py-3 rounded  focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
             >
               {loading ? "Please wait..." : "Login"}
             </button>

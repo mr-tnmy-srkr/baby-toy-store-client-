@@ -1,13 +1,15 @@
+import axios from "axios";
 import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const MyCart = () => {
   const cartItems = useLoaderData();
   const [updatedCart, SetUpdatedCart] = useState(cartItems);
-  // console.log(updatedCart);
-
-  /* const handleDelete = (id) => {
+  let total;
+  const handleDelete = (id) => {
     // console.log(id);
     Swal.fire({
       title: "Are you sure to delete it?",
@@ -21,24 +23,13 @@ const MyCart = () => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `https://brand-shop-server-express-mongodb-mern-assignment-10.vercel.app/myCart/${id}`
+            `https://baby-toy-store-server-job-task.vercel.app/deleteCartItem/${id}`
           )
           .then((response) => {
             // console.log("Delete request successful:", response.data);
 
             if (response.data.deletedCount > 0) {
-              Swal.fire({
-                title: "Success!",
-                showClass: {
-                  popup: "animate__animated animate__fadeInDown",
-                },
-                hideClass: {
-                  popup: "animate__animated animate__fadeOutUp",
-                },
-                text: "Product deleted successfully",
-                icon: "success",
-                confirmButtonText: "Ok",
-              });
+              toast.success("Product deleted form cart successfully");
 
               const filteredCart = updatedCart.filter(
                 (item) => item._id !== id
@@ -48,11 +39,11 @@ const MyCart = () => {
             }
           })
           .catch((error) => {
-            console.error("Error deleting data:", error);
+            toast.error("Error deleting data:", error);
           });
       }
     });
-  }; */
+  };
 
   return (
     <div>
@@ -93,7 +84,7 @@ const MyCart = () => {
                   <td className="px-6 py-4">{item.data.price}</td>
                   <td className="px-6 py-4">
                     <button
-                      // onClick={() => handleDelete(item._id)}
+                      onClick={() => handleDelete(item._id)}
                       type="submit"
                       className="dark:bg-white bg-red-500 p-2 rounded-lg font-medium text-white dark:text-red-500 hover:underline"
                     >
@@ -107,7 +98,9 @@ const MyCart = () => {
       </div>
       {!updatedCart.length ? (
         <div className="min-h-[60vh] flex justify-center items-center">
-          <p className="text-2xl font-bold">Sorry your cart is empty</p>
+          <p className="text-2xl font-bold dark:text-white">
+            Sorry your cart is empty
+          </p>
         </div>
       ) : (
         ""

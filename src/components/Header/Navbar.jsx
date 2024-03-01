@@ -7,6 +7,7 @@ import { RxAvatar } from "react-icons/rx";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuthContext, useTheme } from "../../hook";
+import icon from "../../assets/icon/basket.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -76,7 +77,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" ">
+    <div className="z-10">
       <div className="navbar bg-gray-100 shadow-lg px-0 dark:bg-gray-800 dark:text-gray-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -100,18 +101,17 @@ const Navbar = () => {
               </ul>
             )}
           </div>
-          <Link
+          {/*  <Link
             to="/"
             className="font-bold text-xl md:text-2xl cursor-pointer text-center flex items-center"
-          >
-            <div className="">
-              {/* <img className="h-10 w-14" src={shopify} alt="" /> */}
-            </div>
-            <div className="hidden md:block">
-              <span className="text-[#95BF46] text-5xl">Baby</span>
-              <span className="text-[#95BF46]">Toy</span>
-            </div>
-          </Link>
+          > */}
+          <div className="flex gap-2 items-center ">
+            <img className="w-16" src={icon} alt="" />
+            <span className="self-center text-4xl font-semibold text-emerald-500 hidden md:block">
+              Toy Shop
+            </span>
+          </div>
+          {/* </Link> */}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="relative gap-5  menu-horizontal px-1 ">{NavLinks}</ul>
@@ -149,7 +149,7 @@ const Navbar = () => {
           {user && show && (
             <ul
               tabIndex={0}
-              className={`font-bold menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box  absolute top-12 lg:top-12 right-16 space-y-3 dark:bg-gray-800 dark:text-gray-100`}
+              className={`font-bold menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box  absolute top-12 lg:top-12 lg:right-64 space-y-3 dark:bg-gray-800 dark:text-gray-100`}
             >
               <li className="text-2xl ">{user?.displayName}</li>
               <li onClick={handleLogout} className="text-lg cursor-pointer">
@@ -161,13 +161,13 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={handleLogout}
-              className="btn btn-info bg-[#95BF46] hover:bg-green-400 border-0 btn-circle capitalize ml-3 px-10 text-white text-lg mr-5"
+              className="btn btn-info bg-emerald-700 text-white hover:bg-green-400 border-0 btn-circle capitalize ml-3 px-10 text-lg mr-5"
             >
               Logout
             </button>
           ) : (
             <Link to="/login" onClick={handleLogout}>
-              <button className="btn btn-primary bg-[#95BF46] hover:bg-green-400 border-0 btn-circle capitalize ml-3 px-10 text-white text-lg mr-5">
+              <button className="btn btn-primary bg-emerald-700 text-white hover:bg-green-400 border-0 btn-circle capitalize ml-3 px-10 text-white text-lg mr-5">
                 Login
               </button>
             </Link>

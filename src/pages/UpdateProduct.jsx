@@ -43,8 +43,8 @@ const UpdateMyProduct = () => {
       // console.log(result);
 
       if (result.acknowledged) {
-        toast.success("Product added successfully");
-        
+        toast.success("Product updated successfully");
+        navigate(-1);
       }
     } catch (error) {
       toast.error(error);
@@ -165,7 +165,7 @@ const UpdateMyProduct = () => {
             </div>
 
             <div className="flex justify-end mt-6">
-              <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform   bg-[#95BF46]  rounded-md hover:bg-[#b5d578] focus:outline-none focus:bg-green-600 ">
+              <button className="px-8 py-2.5 leading-5 bg-emerald-700 text-white transition-colors duration-300 transform     rounded-md hover:bg-[#b5d578] focus:outline-none focus:bg-green-600 ">
                 Update Product
               </button>
             </div>
@@ -175,7 +175,7 @@ const UpdateMyProduct = () => {
           </h2>
 
           <span className="ml-3" onClick={() => navigate(-1)}>
-            <button className="btn btn-info text-white capitalize btn-sm">
+            <button className="btn bg-emerald-700 text-white capitalize btn-sm">
               Click Here
             </button>
           </span>
